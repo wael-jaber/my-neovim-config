@@ -9,11 +9,12 @@ vim.cmd [[packadd packer.nvim]]
 packer.startup(function(use)
 	use 'wbthomason/packer.nvim'
 	-- Your plugins goes here
-	use {
-		'nvim-telescope/telescope.nvim', tag = '0.1.2',
-		-- or                            , branch = '0.1.x',
-		requires = { {'nvim-lua/plenary.nvim'} }
-	}
+    
+    use {
+        "nvim-telescope/telescope-file-browser.nvim",
+        requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+    }
+	
 	use({
 		'folke/tokyonight.nvim',
 		as = 'tokyonight' ,
@@ -49,5 +50,7 @@ packer.startup(function(use)
 			{'rafamadriz/friendly-snippets'},
 		}
 	}
+    use 'nvim-tree/nvim-web-devicons'
+   
 
 end)
