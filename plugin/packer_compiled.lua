@@ -139,6 +139,11 @@ _G.packer_plugins = {
     path = "/Users/wael/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["netrw.nvim"] = {
+    loaded = true,
+    path = "/Users/wael/.local/share/nvim/site/pack/packer/start/netrw.nvim",
+    url = "https://github.com/prichrd/netrw.nvim"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/Users/wael/.local/share/nvim/site/pack/packer/start/nvim-cmp",

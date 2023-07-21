@@ -7,10 +7,9 @@ end
 vim.cmd [[packadd packer.nvim]]
 
 packer.startup(function(use)
-	use 'wbthomason/packer.nvim'
-	-- Your plugins goes here
+    use 'wbthomason/packer.nvim'
+    -- Your plugins goes here
     use { 'nvim-tree/nvim-web-devicons' }
-    
     use {
         "nvim-telescope/telescope-file-browser.nvim",
         requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
@@ -56,7 +55,7 @@ packer.startup(function(use)
 			{'rafamadriz/friendly-snippets'},
 		}
 	}
-    use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
-	use  'lewis6991/gitsigns.nvim'     
-
+    use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
+	use 'lewis6991/gitsigns.nvim'     
+    use 'prichrd/netrw.nvim'
 end)
