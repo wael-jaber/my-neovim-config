@@ -75,6 +75,6 @@ packer.startup(function(use)
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
     }
-
+    use 'nvim-treesitter/nvim-treesitter-context'
 
 end)
