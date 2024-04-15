@@ -60,10 +60,8 @@ packer.startup(function(use)
     use 'lewis6991/gitsigns.nvim'     
     use 'prichrd/netrw.nvim'
     use 'github/copilot.vim'
-    use({
-        "iamcco/markdown-preview.nvim",
-        run = function() vim.fn["mkdp#util#install"]() end,
-    })
+
+
 
 
     use {'jose-elias-alvarez/null-ls.nvim'}
