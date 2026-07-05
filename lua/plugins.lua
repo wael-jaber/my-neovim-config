@@ -212,6 +212,10 @@ return {
     'nvimdev/dashboard-nvim',
     event = 'VimEnter',
     config = function()
+      -- Skip dashboard when opening a directory (e.g. `nvim .`)
+      if vim.fn.argc() == 1 and vim.fn.isdirectory(vim.fn.argv(0)) == 1 then
+        return
+      end
       require('dashboard').setup({
         theme = 'hyper',
         config = {

@@ -42,6 +42,7 @@ vim.keymap.set("n", "<leader>xq", ":Trouble qflist toggle<CR>", { desc = "Quickf
 
 -- Git
 vim.keymap.set("n", "<leader>gs", ":0Git<CR>", { desc = "Git status" })
+vim.keymap.set("n", "<leader>gb", ":Gblame<CR>", { desc = "Git blame" })
 
 -- Terminal
 vim.keymap.set("n", "<F7>", ":ToggleTerm<CR>", { desc = "Toggle terminal" })
@@ -67,7 +68,7 @@ vim.keymap.set("n", "<leader>dd", ":lua require('dapui').toggle()<CR>", { desc =
 vim.keymap.set("n", "<leader>dt", ":lua require('dap').terminate()<CR>", { desc = "Terminate" })
 
 -- Tests (Neotest)
-vim.keymap.set("n", "<leader>tn", ":lua require('neotest').run.run(vim.fn.expand('%'))<CR>", { desc = "Run nearest test" })
+vim.keymap.set("n", "<leader>tn", ":lua require('neotest').run.run()<CR>", { desc = "Run nearest test" })
 vim.keymap.set("n", "<leader>tf", ":lua require('neotest').run.run(vim.fn.expand('%:p'))<CR>", { desc = "Run file tests" })
 vim.keymap.set("n", "<leader>ts", ":lua require('neotest').summary.toggle()<CR>", { desc = "Toggle summary" })
 vim.keymap.set("n", "<leader>to", ":lua require('neotest').output_panel.toggle()<CR>", { desc = "Toggle output" })

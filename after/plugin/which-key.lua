@@ -18,6 +18,10 @@ vim.api.nvim_create_autocmd('BufReadPost', {
 
       { '<leader>e', desc = 'Explorer' },
 
+      { '<leader>g', group = 'Git' },
+      { '<leader>gs', desc = 'Status' },
+      { '<leader>gb', desc = 'Blame' },
+
       { '<leader>p', group = 'Telescope' },
       { '<leader>pv', desc = 'File browser' },
       { '<leader>pp', desc = 'Projects' },
