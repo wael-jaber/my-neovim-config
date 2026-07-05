@@ -2,6 +2,13 @@ local ok, conform = pcall(require, 'conform')
 if not ok then return end
 
 conform.setup({
+  formatters = {
+    prettier = {
+      command = function(_, ctx)
+        return require('util').find_project_binary(ctx.buf, 'prettier')
+      end,
+    },
+  },
   formatters_by_ft = {
     lua = { 'stylua' },
     rust = { 'rustfmt', lsp_format = 'fallback' },
