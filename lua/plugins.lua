@@ -21,19 +21,6 @@ return {
     dependencies = { 'nvim-web-devicons' },
   },
 
-  -- Nui (fix winborder compat for v0.11-dev)
-  {
-    'MunifTanjim/nui.nvim',
-    config = function()
-      local ok, val = pcall(vim.api.nvim_get_option_value, 'winborder', {})
-      if not ok then
-        require('nui.utils')._.get_default_winborder = function()
-          return 'none'
-        end
-      end
-    end,
-  },
-
   -- File explorer (tree)
   {
     'nvim-neo-tree/neo-tree.nvim',
@@ -48,11 +35,19 @@ return {
       { '<leader>e', '<cmd>Neotree toggle<CR>', desc = 'Explorer' },
     },
     opts = {
-      popup_border_style = 'rounded',
       filesystem = {
         follow_current_file = { enabled = true },
         hijack_netrw = false,
         use_libuv_file_watcher = true,
+        filtered_items = {
+          hide_dotfiles = false,
+          hide_gitignored = false,
+          hide_ignored = false,
+          hide_by_name = {
+            '.DS_Store',
+            'thumbs.db',
+          },
+        },
       },
       window = {
         position = 'left',
