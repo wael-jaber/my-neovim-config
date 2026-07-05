@@ -16,8 +16,11 @@ vim.api.nvim_create_autocmd('BufReadPost', {
 
       { '<leader>f', group = 'Format' },
 
+      { '<leader>e', desc = 'Explorer' },
+
       { '<leader>p', group = 'Telescope' },
       { '<leader>pv', desc = 'File browser' },
+      { '<leader>pp', desc = 'Projects' },
       { '<leader>pf', desc = 'Find files' },
       { '<leader>ps', desc = 'Grep string' },
       { '<leader>pg', desc = 'Live grep' },
@@ -25,13 +28,28 @@ vim.api.nvim_create_autocmd('BufReadPost', {
       { '<leader>pk', desc = 'Keymaps' },
       { '<leader>po', desc = 'Recent files' },
       { '<leader>pd', desc = 'Diagnostics' },
-      { '<leader>pb', desc = 'File browser' },
 
       { '<leader>x', group = 'Trouble' },
       { '<leader>xx', desc = 'Toggle diagnostics' },
       { '<leader>xX', desc = 'Buffer diagnostics' },
       { '<leader>xl', desc = 'Location list' },
       { '<leader>xq', desc = 'Quickfix list' },
+
+      { '<leader>d', group = 'Debug' },
+      { '<leader>db', desc = 'Toggle breakpoint' },
+      { '<leader>dc', desc = 'Continue' },
+      { '<leader>do', desc = 'Step over' },
+      { '<leader>di', desc = 'Step into' },
+      { '<leader>dO', desc = 'Step out' },
+      { '<leader>dd', desc = 'Toggle DAP UI' },
+      { '<leader>dt', desc = 'Terminate' },
+
+      { '<leader>t', group = 'Test' },
+      { '<leader>tn', desc = 'Run nearest test' },
+      { '<leader>tf', desc = 'Run file tests' },
+      { '<leader>ts', desc = 'Toggle summary' },
+      { '<leader>to', desc = 'Toggle output' },
+      { '<leader>ta', desc = 'Run all tests' },
     })
   end,
 })

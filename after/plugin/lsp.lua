@@ -12,7 +12,15 @@ require('mason').setup({
 
 -- Auto-install LSP servers via mason-lspconfig
 require('mason-lspconfig').setup({
-  ensure_installed = { 'rust_analyzer' },
+  ensure_installed = {
+    'rust_analyzer',
+    'gopls',
+    'ts_ls',
+    'lua_language_server',
+    'jsonls',
+    'yamlls',
+    'bashls',
+  },
   handlers = {
     function(server_name)
       vim.lsp.enable(server_name)
