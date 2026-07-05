@@ -21,6 +21,19 @@ return {
     dependencies = { 'nvim-web-devicons' },
   },
 
+  -- Nui (fix winborder compat for v0.11-dev)
+  {
+    'MunifTanjim/nui.nvim',
+    config = function()
+      local ok, val = pcall(vim.api.nvim_get_option_value, 'winborder', {})
+      if not ok then
+        require('nui.utils')._.get_default_winborder = function()
+          return 'none'
+        end
+      end
+    end,
+  },
+
   -- File explorer (tree)
   {
     'nvim-neo-tree/neo-tree.nvim',
