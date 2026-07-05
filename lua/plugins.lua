@@ -1,72 +1,91 @@
-local status, packer = pcall(require, "packer")
-if (not status) then
-    print("Packer is not installed")
-    return
-end
+return {
+  -- Colorscheme
+  {
+    'folke/tokyonight.nvim',
+    name = 'tokyonight',
+    priority = 1000,
+    config = function()
+      vim.cmd('colorscheme tokyonight-night')
+    end,
+  },
 
-vim.cmd [[packadd packer.nvim]]
+  -- Icons
+  { 'nvim-tree/nvim-web-devicons' },
 
-packer.startup(function(use)
-    use 'wbthomason/packer.nvim'
-    -- Your plugins goes here
-    use { 'nvim-tree/nvim-web-devicons' }
-    use {
-        "nvim-telescope/telescope-file-browser.nvim",
-        requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
-    }
+  -- UI
+  { 'nvim-lualine/lualine.nvim', dependencies = { 'nvim-web-devicons' } },
+  {
+    'akinsho/bufferline.nvim',
+    version = '*',
+    dependencies = { 'nvim-web-devicons' },
+  },
 
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-    }
+  -- File explorer
+  {
+    'nvim-telescope/telescope.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+  },
+  {
+    'nvim-telescope/telescope-file-browser.nvim',
+    dependencies = { 'telescope.nvim' },
+  },
 
-    use({
-        'folke/tokyonight.nvim',
-        as = 'tokyonight' ,
-        config = function()
-            vim.cmd('colorscheme tokyonight-night')
-        end
-    })
+  -- Treesitter
+  {
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
+  },
+  { 'nvim-treesitter/nvim-treesitter-context' },
 
-    use( 'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate'} )
-    use( 'nvim-treesitter/playground' )
-    use( 'mbbill/undotree' )
-    use( 'tpope/vim-fugitive' )
+  -- LSP
+  { 'neovim/nvim-lspconfig' },
+  { 'williamboman/mason.nvim' },
+  { 'williamboman/mason-lspconfig.nvim' },
 
+  -- Autocompletion
+  { 'hrsh7th/nvim-cmp' },
+  { 'hrsh7th/cmp-buffer' },
+  { 'hrsh7th/cmp-path' },
+  { 'saadparwaiz1/cmp_luasnip' },
+  { 'hrsh7th/cmp-nvim-lsp' },
+  { 'hrsh7th/cmp-nvim-lua' },
 
-    -- LSP Support
-    use {'neovim/nvim-lspconfig'}
-    use {'williamboman/mason.nvim'}
-    use {'williamboman/mason-lspconfig.nvim'}
+  -- Snippets
+  { 'L3MON4D3/LuaSnip' },
+  { 'rafamadriz/friendly-snippets' },
 
-    -- Autocompletion
-    use {'hrsh7th/nvim-cmp'}
-    use {'hrsh7th/cmp-buffer'}
-    use {'hrsh7th/cmp-path'}
-    use {'saadparwaiz1/cmp_luasnip'}
-    use {'hrsh7th/cmp-nvim-lsp'}
-    use {'hrsh7th/cmp-nvim-lua'}
+  -- Formatting
+  { 'stevearc/conform.nvim' },
 
-    -- Snippets
-    use {'L3MON4D3/LuaSnip'}
-    use {'rafamadriz/friendly-snippets'}
-    use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
-    use 'lewis6991/gitsigns.nvim'
-    use 'prichrd/netrw.nvim'
-    use 'github/copilot.vim'
+  -- Linting
+  { 'mfussenegger/nvim-lint' },
 
+  -- LSP enhancements
+  { 'folke/lazydev.nvim', ft = 'lua' }, -- Lua LSP for config files
+  { 'folke/trouble.nvim' },
 
+  -- Git
+  { 'tpope/vim-fugitive' },
+  { 'lewis6991/gitsigns.nvim' },
 
+  -- Editing helpers
+  { 'windwp/nvim-autopairs' },
+  { 'windwp/nvim-ts-autotag' },
+  { 'numToStr/Comment.nvim' },
+  { 'lukas-reineke/indent-blankline.nvim' },
+  { 'tpope/vim-sleuth' },
+  { 'mbbill/undotree' },
 
-    use {'nvimtools/none-ls.nvim'}
+  -- Terminal
+  { 'akinsho/toggleterm.nvim' },
 
-    use('MunifTanjim/prettier.nvim')
+  -- UX
+  { 'folke/which-key.nvim' },
+  { 'folke/flash.nvim' },
+  { 'folke/noice.nvim' },
+  { 'folke/todo-comments.nvim' },
+  { 'stevearc/dressing.nvim' },
 
-    use {"windwp/nvim-ts-autotag" ,config = function() require("nvim-ts-autotag").setup() end}
-    use {
-        "windwp/nvim-autopairs",
-        config = function() require("nvim-autopairs").setup {} end
-    }
-    use 'nvim-treesitter/nvim-treesitter-context'
-
-end)
+  -- Copilot
+  { 'github/copilot.vim' },
+}
