@@ -19,6 +19,7 @@ vim.keymap.set("i", "<C-h>", ":lua vim.lsp.buf.signature_help()<CR>", { desc = "
 
 -- Projects
 vim.keymap.set("n", "<leader>pp", ":Telescope projects<CR>", { desc = "Projects" })
+vim.keymap.set("n", "<leader>ps", ":Telescope persisted<CR>", { desc = "Sessions" })
 
 -- Telescope
 vim.keymap.set("n", "<leader>pf", ":Telescope find_files<CR>", { desc = "Find files" })

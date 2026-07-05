@@ -25,6 +25,7 @@ vim.api.nvim_create_autocmd('BufReadPost', {
       { '<leader>p', group = 'Telescope' },
       { '<leader>pv', desc = 'File browser' },
       { '<leader>pp', desc = 'Projects' },
+      { '<leader>ps', desc = 'Sessions' },
       { '<leader>pf', desc = 'Find files' },
       { '<leader>ps', desc = 'Grep string' },
       { '<leader>pg', desc = 'Live grep' },

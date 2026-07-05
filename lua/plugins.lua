@@ -141,7 +141,12 @@ return {
     event = 'VeryLazy',
     opts = {
       autoload = true,
+      telescope = true,
     },
+    config = function(_, opts)
+      require('persisted').setup(opts)
+      pcall(require('telescope').load_extension, 'persisted')
+    end,
   },
 
   -- Project switching
