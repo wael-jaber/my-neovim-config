@@ -35,6 +35,7 @@ return {
       { '<leader>e', '<cmd>Neotree toggle<CR>', desc = 'Explorer' },
     },
     opts = {
+      popup_border_style = 'rounded',
       filesystem = {
         follow_current_file = { enabled = true },
         hijack_netrw = false,
